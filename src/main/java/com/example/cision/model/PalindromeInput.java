@@ -14,5 +14,5 @@ public class PalindromeInput {
     private String content;
 
     @NotBlank(message = "Valid timestamp must be provided")
-    private Timestamp timestamp;
+    private String timestamp;
 }
