@@ -18,9 +18,9 @@ public class PalindromeService {
     public PalindromeResponse addNew(PalindromeInput palindromeInput) {
 
         var response = new PalindromeResponse();
-        var content = palindromeInput.getContent();
+        var content = palindromeInput.getContent().replaceAll("[^A-Za-z0-9]", "");
 
-        response.setContent(content);
+        response.setContent(palindromeInput.getContent());
         response.setTimestamp(palindromeInput.getTimestamp());
         response.setLongestPalindromeSize(getLongestPalindrome(content));
 
