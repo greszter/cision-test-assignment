@@ -16,19 +16,19 @@ public class PalindromeService {
     int resultLength;
 
     public PalindromeResponse addNew(PalindromeInput palindromeInput) {
-
         var response = new PalindromeResponse();
-        var content = palindromeInput.getContent().replaceAll("[^A-Za-z0-9]", "");
+        String alphaNumericRegex = "[^A-Za-z0-9]";
+        var content = palindromeInput.getContent().replaceAll(alphaNumericRegex, "");
 
         response.setContent(palindromeInput.getContent());
         response.setTimestamp(palindromeInput.getTimestamp());
-        response.setLongestPalindromeSize(getLongestPalindrome(content));
+        response.setLongestPalindromeSize(getLongestPalindromeSize(content));
 
         repository.save(response);
         return response;
     }
 
-    private int getLongestPalindrome(String content) {
+    private int getLongestPalindromeSize(String content) {
         resultStart = 0;
         resultLength = 0;
         var contentLength = content.length();
@@ -42,7 +42,7 @@ public class PalindromeService {
             expandRange(content, i, i + 1);
         }
 
-        return content.substring(resultStart, resultStart + resultLength).length(); //error handling
+        return content.substring(resultStart, resultStart + resultLength).length();
     }
 
     private void expandRange(String str, int begin, int end) {
