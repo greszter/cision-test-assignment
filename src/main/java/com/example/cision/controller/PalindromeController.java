@@ -18,9 +18,6 @@ public class PalindromeController {
     @Autowired
     private PalindromeService service;
 
-    @Autowired
-    private PalindromeRepository repository;
-
     @PostMapping("add-new-item")
     public ResponseEntity<PalindromeResponse> addNew(@Valid @RequestBody PalindromeInput input) {
         return ResponseEntity.ok(service.addNew(input));
@@ -28,6 +25,6 @@ public class PalindromeController {
 
     @GetMapping("get-all-items")
     public ResponseEntity<List<PalindromeResponse>> getAll() {
-        return ResponseEntity.ok(repository.findAll());
+        return ResponseEntity.ok(service.getAllItems());
     }
 }

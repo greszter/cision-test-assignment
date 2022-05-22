@@ -4,7 +4,10 @@ import com.example.cision.model.PalindromeInput;
 import com.example.cision.model.PalindromeResponse;
 import com.example.cision.repository.PalindromeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class PalindromeService {
@@ -54,6 +57,10 @@ public class PalindromeService {
             resultStart = begin + 1;
             resultLength = end - begin - 1;
         }
+    }
+
+    public List<PalindromeResponse> getAllItems() {
+        return repository.findAll();
     }
 }
 
