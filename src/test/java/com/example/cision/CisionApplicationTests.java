@@ -14,8 +14,8 @@ import org.springframework.test.web.servlet.MockMvc;
 @AutoConfigureMockMvc
 class CisionApplicationTests {
 
-	@Autowired
-	private MockMvc mockMvc;
+//	@Autowired
+//	private MockMvc mockMvc;
 
 	@MockBean
 	private PalindromeRepository palindromeRepository;
