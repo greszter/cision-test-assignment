@@ -13,7 +13,7 @@ The application currently uses in-memory database that is empty on startup.
 Use `mvn clean install` and then run the application
 
 TODO:
-- Finish test
+- Finish tests
 - Add date serializer to transform String `timestamp` into ZonedDateTime (in case it is needed for calculations later)
 
 
